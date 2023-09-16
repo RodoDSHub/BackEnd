@@ -13,9 +13,8 @@
     {% csrf_token %}
     <!-- Formulario -->
     {{ form.as_p }}
+    <button class="apButton">Crear</button>
   </form>
-  <br/>
-  <a class="btnNuevo" href="{% url "listado" %}">Crear</a>
 </div>
 
 <!-- Fin del Bloque nuevaTarea-->

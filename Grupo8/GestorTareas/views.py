@@ -40,7 +40,7 @@ def nuevaTarea(request):
             'form': NuevaTarea()
         })
     else:
-        Tareas.objects.create(titulo=request.POST['titulo'], descrip=request.POST['descrip'], usuario_id=1)
+        Tareas.objects.create(titulo=request.POST['titulo'], descrip=request.POST['descrip'], completa=False, usuario_id=1)
         return redirect('listado')
 
 def acerca(request):
