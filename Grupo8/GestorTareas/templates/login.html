@@ -4,10 +4,11 @@
 <!-- Static -->
 {% load static %}
 
+<!-- Título -->
+{% block titulo %}Ingreso{% endblock titulo %}
+
 <!-- Contenido -->
 {% block content %}
-
-<h1 class="titulo">Ingreso</h1>
 
 <form class="loginFrame" method="POST">
   {% csrf_token %} {% if form.non_field_errors %}

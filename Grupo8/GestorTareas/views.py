@@ -4,7 +4,7 @@ from .forms import Login, Registro, NuevaTarea
 
 # Create your views here.
 def inicio(request):
-    return render(request, 'base.html')
+    return render(request, 'home.html')
 
 def login(request):
     usuarios = Usuarios.objects.all()

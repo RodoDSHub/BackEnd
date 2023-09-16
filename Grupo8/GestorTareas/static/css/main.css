@@ -75,15 +75,6 @@
   margin: 2px;
 }
 
-.apButton {
-  color: white;
-  background-color: #0080ff;
-  border-color: #0080ff;
-  border-radius: 10px;
-  padding: 5px 15px;
-  margin: 5px;
-}
-
 .btnMas {
   background-color: #ff0000;
   color: #ffffff;
@@ -93,6 +84,16 @@
   margin: 5px 20px;
   padding: 5px 10px 5px 10px;
   border-radius: 15px;
+}
+
+.apButton {
+  color: white;
+  background-color: #0080ff;
+  border-color: #0080ff;
+  border-radius: 10px;
+  padding: 5px 15px;
+  margin: 5px;
+  font-size: large;
 }
 
 .apButton:hover {
@@ -171,7 +172,6 @@
   color: #ffffff;
   border: 2px ridge #0080ff;
   font-size: large;
-  text-decoration: none;
   margin: 10px 30px;
   padding: 5px 10px 5px 10px;
   border-radius: 15px;
@@ -179,4 +179,9 @@
 
 .btnNuevo:hover {
   background-color: #48a0ff;
+}
+
+.lnkPlano {
+  color: #ffffff;
+  text-decoration: none;
 }

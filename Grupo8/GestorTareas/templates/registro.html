@@ -4,10 +4,12 @@
 <!-- Static -->
 {% load static %}
 
+<!-- Título -->
+{% block titulo %}Registro de Usuarios{% endblock titulo %}
+
 <!-- Contenido -->
 {% block content %}
 
-<h1 class="titulo">Registro de Usuarios</h1>
 <form class="loginFrame" method="POST">
   {% csrf_token %} {{ form.as_p }}
   <br />

@@ -27,5 +27,9 @@
     <h3>Bienvenido, {{ usuario }}.</h3>
     {% endif %}
   </div>
+
+  <!-- Título -->
+  <h1 class="titulo">{% block titulo %}{% endblock titulo %}</h1>
+  <!-- Contenido -->
   {% block content %}{% endblock %}
 </body>

@@ -4,10 +4,11 @@
 <!-- Static -->
 {% load static %}
 
+<!-- Título -->
+{% block titulo %}Integrantes del Grupo 8{% endblock titulo %}
+
 <!-- Contenido -->
 {% block content %}
-
-<h1 class="titulo">Integrantes del Grupo 8</h1>
 <div class="itemFrame">
   {% for integrante in integrantes %}
   <ul>

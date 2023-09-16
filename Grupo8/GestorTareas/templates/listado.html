@@ -4,10 +4,11 @@
 <!-- Static -->
 {% load static %}
 
+<!-- Título -->
+{% block titulo %}Lista de Tareas{% endblock titulo %}
+
 <!-- Contenido -->
 {% block content %}
-
-<h1 class="titulo">Lista de Tareas</h1>
 <div class="listaFrame">
   <!-- Lista de Items -->
   {% for tarea in tareas %}
@@ -23,10 +24,10 @@
   </div>
   {% endfor %}
   <br/>
-  <a class="btnNuevo" href="{% url "nuevatarea" %}">Nueva Tarea</a>
+  <button class="apButton" ><a class="lnkPlano" href="{% url "nuevatarea" %}">Nueva Tarea</a></button>
+  <!-- Bloque Nueva Tarea -->
+  {% block nuevaTarea %}{% endblock nuevaTarea %}
 </div>
-<!-- Bloque Nueva Tarea -->
-{% block nuevaTarea %}{% endblock nuevaTarea %}
 
 <!-- Fin del Bloque -->
 {% endblock content %}
