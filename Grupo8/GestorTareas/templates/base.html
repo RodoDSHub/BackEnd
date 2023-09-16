@@ -21,7 +21,11 @@
       <h4><a href="{% url 'listado' %}">Listado</a></h4>
       <h4><a href="{% url 'about' %}">About</a></h4>
     </nav>
+    {% if usuario == '' %}
+    <h3>Bienvenido.</h3>
+    {% else %}
     <h3>Bienvenido, {{ usuario }}.</h3>
+    {% endif %}
   </div>
   {% block content %}{% endblock %}
 </body>
