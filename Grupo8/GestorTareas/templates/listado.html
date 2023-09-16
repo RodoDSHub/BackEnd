@@ -1,0 +1,32 @@
+<!-- Extends -->
+{% extends "about.html" %}
+
+<!-- Static -->
+{% load static %}
+
+<!-- Contenido -->
+{% block content %}
+
+<h1 class="titulo">Lista de Tareas</h1>
+<div class="listaFrame">
+  <!-- Lista de Items -->
+  {% for tarea in tareas %}
+  <div class="itemFrame">
+    {% if tarea.completa == True %}
+    <button class="btnChkBoxTr">■</button>
+    {% else %}
+    <button class="btnChkBoxFl">■</button>
+    {% endif %}
+    {{tarea.titulo}}
+    <button class="btnBorrar">X</button>
+    <div class="listaDescrip">{{tarea.descrip}}</div>
+  </div>
+  {% endfor %}
+  <br/>
+  <a class="btnNuevo" href="{% url "nuevatarea" %}">Nueva Tarea</a>
+</div>
+<!-- Bloque Nueva Tarea -->
+{% block nuevaTarea %}{% endblock nuevaTarea %}
+
+<!-- Fin del Bloque -->
+{% endblock content %}

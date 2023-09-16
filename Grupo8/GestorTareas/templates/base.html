@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grupo 8 | Gestor de Tareas</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  </head>
+</html>
+<body>
+  <div class="encabezado">
+    <h2>Grupo 8</h2>
+    <h1>Gestor de Tareas</h1>
+    <nav class="navbar">
+      <h4><a href="{% url 'inicio' %}">Inicio</a></h4>
+      <h4><a href="{% url 'login' %}">Login</a></h4>
+      <h4><a href="{% url 'registro' %}">Registro</a></h4>
+      <h4><a href="{% url 'listado' %}">Listado</a></h4>
+      <h4><a href="{% url 'about' %}">About</a></h4>
+    </nav>
+    <h3>Bienvenido, {{ usuario }}.</h3>
+  </div>
+  {% block content %}{% endblock %}
+</body>

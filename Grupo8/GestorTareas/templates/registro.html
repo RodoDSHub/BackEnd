@@ -1,0 +1,18 @@
+<!-- Extends -->
+{% extends "base.html" %}
+
+<!-- Static -->
+{% load static %}
+
+<!-- Contenido -->
+{% block content %}
+
+<h1 class="titulo">Registro de Usuarios</h1>
+<form class="loginFrame" method="POST">
+  {% csrf_token %} {{ form.as_p }}
+  <br />
+  <button class="apButton">Crear</button>
+</form>
+
+<!-- Fin del Bloque -->
+{% endblock content %}

@@ -1,0 +1,20 @@
+<!-- Extends -->
+{% extends "base.html" %}
+
+<!-- Static -->
+{% load static %}
+
+<!-- Contenido -->
+{% block content %}
+
+<h1 class="titulo">Integrantes del Grupo 8</h1>
+<div class="itemFrame">
+  {% for integrante in integrantes %}
+  <ul>
+    <li><h4>{{ integrante }}</h4></li>
+  </ul>
+  {% endfor %}
+</div>
+
+<!-- Fin del Bloque -->
+{% endblock content %}

@@ -1,0 +1,27 @@
+<!-- Extends -->
+{% extends "base.html" %}
+
+<!-- Static -->
+{% load static %}
+
+<!-- Contenido -->
+{% block content %}
+
+<h1 class="titulo">Ingreso</h1>
+
+<form class="loginFrame" method="POST">
+  {% csrf_token %} {% if form.non_field_errors %}
+  <p style="color: red">
+    El Usuario o Contraseña son incorrectos, prueba de nuevo.
+  </p>
+  {% endif %}
+
+  <!-- Formulario -->
+  {{ form.as_p }}
+
+  <button class="apButton">Ingresar</button>
+  <p>Si no tenés usuario? <a href="{% url 'registro' %}">Regístrate aquí</a></p>
+</form>
+
+<!-- Fin del Bloque -->
+{% endblock content %}

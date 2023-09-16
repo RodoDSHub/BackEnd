@@ -1,0 +1,182 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.encabezado {
+  background-color: black;
+  color: white;
+  padding: 5px 15px;
+}
+
+.encabezado h1 {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.encabezado h2 {
+  margin: 10px 0px 5px;
+  width: 95%;
+}
+
+.encabezado h3 {
+  margin: 5px 0px;
+  text-align: left;
+}
+
+.titulo {
+  background-color: #0080ff;
+  color: aliceblue;
+  text-align: center;
+  padding: 10px 0px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.navbar {
+  background-color: #303030;
+  display: flex;
+  justify-content: right;
+  padding: 5px 20px;
+  margin-top: 15px;
+}
+
+.navbar h4 {
+  margin: 0px 0px;
+}
+
+.navbar a {
+  color: aliceblue;
+  padding: 0px 10px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: #7fbfff;
+}
+
+.loginFrame {
+  margin: auto;
+  margin-bottom: 15px;
+  width: 35%;
+  background-color: #7fbfff;
+  border: 1px solid #0080ff;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+}
+
+.apInput {
+  margin: auto;
+  width: 75%;
+  border: 1 solid #808080;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 2px;
+}
+
+.apButton {
+  color: white;
+  background-color: #0080ff;
+  border-color: #0080ff;
+  border-radius: 10px;
+  padding: 5px 15px;
+  margin: 5px;
+}
+
+.btnMas {
+  background-color: #ff0000;
+  color: #ffffff;
+  border: 2px ridge #0080ff;
+  font-size: xx-large;
+  text-decoration: none;
+  margin: 5px 20px;
+  padding: 5px 10px 5px 10px;
+  border-radius: 15px;
+}
+
+.apButton:hover {
+  background-color: #48a0ff;
+}
+
+.listaFrame {
+  margin: auto;
+  width: 85%;
+  border: 1px solid #0080ff;
+  background-color: #7fbfff;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.itemFrame {
+  margin: 5px auto;
+  width: 85%;
+  border: 1px solid #0080ff;
+  background-color: #e5f3ff;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.itemFrameCompleta {
+  margin: 5px auto;
+  width: 85%;
+  border: 1px solid #808080;
+  background-color: #e5f3ff;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.listaCheckbox {
+  margin-right: 10px;
+}
+
+.btnChkBoxTr {
+  background-color: #00b400;
+  color: #c0ff84;
+  border: 2px solid #008000;
+  border-collapse: collapse;
+  padding: 0px 5px 5px 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.btnChkBoxFl {
+  background-color: #e0e0e0;
+  color: #e0e0e0;
+  border: 2px solid #303030;
+  border-collapse: collapse;
+  padding: 0px 5px 5px 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.btnBorrar {
+  float: right;
+  background-color: red;
+  color: #ffffff;
+  border: 1px solid red;
+  font-size: large;
+  padding: 2px 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+.listaDescrip {
+  margin-left: 35px;
+  font-size: medium;
+}
+
+.btnNuevo {
+  background-color: #0080ff;
+  color: #ffffff;
+  border: 2px ridge #0080ff;
+  font-size: large;
+  text-decoration: none;
+  margin: 10px 30px;
+  padding: 5px 10px 5px 10px;
+  border-radius: 15px;
+}
+
+.btnNuevo:hover {
+  background-color: #48a0ff;
+}

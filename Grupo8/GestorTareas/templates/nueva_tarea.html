@@ -1,0 +1,22 @@
+<!-- Extends -->
+{% extends "listado.html" %}
+
+<!-- Static -->
+{% load static %}
+
+<!-- Contenido -->
+{% block nuevaTarea %}
+
+<div class="listaFrame">
+  <form class="itemFrame" method="POST">
+    <!-- Token -->
+    {% csrf_token %}
+    <!-- Formulario -->
+    {{ form.as_p }}
+  </form>
+  <br/>
+  <a class="btnNuevo" href="{% url "listado" %}">Crear</a>
+</div>
+
+<!-- Fin del Bloque nuevaTarea-->
+{% endblock nuevaTarea %}
