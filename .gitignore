@@ -7808,3 +7808,4 @@ TPH3_DjCRUD/tareas/templates/about.html
 TPH3_DjCRUD/tareas/migrations/0003_integrantes.py
 TPH3_DjCRUD/tareas/migrations/__pycache__/0003_integrantes.cpython-311.pyc
 TPH3_DjCRUD/tareas/templates/Tarjeta.html
+.vscode/settings.json
