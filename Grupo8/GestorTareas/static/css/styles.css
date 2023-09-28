@@ -2,6 +2,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  background-color: #303030;
+}
+
 .encabezado {
   background-color: black;
   color: white;
@@ -38,6 +42,7 @@
   display: flex;
   justify-content: right;
   padding: 5px 20px;
+  border-radius: 10px;
   margin-top: 15px;
 }
 
@@ -52,18 +57,19 @@
 }
 
 .navbar a:hover {
-  color: #7fbfff;
+  color: #0080ff;
 }
 
 .loginFrame {
   margin: auto;
   margin-bottom: 15px;
-  width: 35%;
-  background-color: #7fbfff;
-  border: 1px solid #0080ff;
-  border-radius: 15px;
+  width: 40%;
+  background-color: #0080ff;
+  border-radius: 10px;
   padding: 15px;
+  color: white;
   text-align: center;
+  font-weight: bold;
 }
 
 .apInput {
@@ -86,34 +92,42 @@
   border-radius: 15px;
 }
 
-.apButton {
+.apBoton {
   color: white;
   background-color: #0080ff;
-  border-color: #0080ff;
   border-radius: 10px;
   padding: 5px 15px;
   margin: 5px;
   font-size: large;
 }
 
-.apButton:hover {
+.apBoton:hover {
   background-color: #48a0ff;
 }
 
 .listaFrame {
   margin: auto;
   width: 85%;
-  border: 1px solid #0080ff;
-  background-color: #7fbfff;
+  background-color: #0080ff;
+  color: white;
   padding: 10px;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
-.itemFrame {
+.itemFrameFl {
   margin: 5px auto;
   width: 85%;
-  border: 1px solid #0080ff;
-  background-color: #e5f3ff;
+  background-color: #e5f2ff;
+  color: black;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.itemFrameTr {
+  margin: 5px auto;
+  width: 85%;
+  background-color: #a0a0a0;
+  color: white;
   border-radius: 10px;
   padding: 10px 20px;
 }

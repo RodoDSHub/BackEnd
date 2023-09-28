@@ -11,9 +11,11 @@
 {% block content %}
 
 <form class="loginFrame" method="POST">
-  {% csrf_token %} {{ form.as_p }}
-  <br />
-  <button class="apButton">Crear</button>
+  <!-- Token -->
+  {% csrf_token %}
+  <!-- Fornulario -->
+  {{ form.as_p }}
+  <button class="apBoton">Crear</button>
 </form>
 
 <!-- Fin del Bloque -->

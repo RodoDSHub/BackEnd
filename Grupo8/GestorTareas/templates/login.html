@@ -5,24 +5,32 @@
 {% load static %}
 
 <!-- Título -->
-{% block titulo %}Ingreso{% endblock titulo %}
+{% block titulo %}Ingreso{% endblock %}
 
 <!-- Contenido -->
 {% block content %}
 
 <form class="loginFrame" method="POST">
-  {% csrf_token %} {% if form.non_field_errors %}
-  <p style="color: red">
-    El Usuario o Contraseña son incorrectos, prueba de nuevo.
+  <!-- Token -->
+  {% csrf_token %}
+
+  <!-- Mensaje de Error -->
+  <p style="color: red; font-weight: bold">
+    {{ error }}
   </p>
-  {% endif %}
 
   <!-- Formulario -->
   {{ form.as_p }}
 
-  <button class="apButton">Ingresar</button>
-  <p>Si no tenés usuario? <a href="{% url 'registro' %}">Regístrate aquí</a></p>
+  <button class="apBoton">Ingresar</button>
+  
 </form>
 
+<form class="loginFrame" action="{% url 'registro' %}">
+  Si no tenés usuario? Regístrate aquí -- 
+  <button class="apBoton">Registro</button>
+</form>
+  
+
 <!-- Fin del Bloque -->
-{% endblock content %}
+{% endblock %}

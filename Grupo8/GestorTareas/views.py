@@ -1,32 +1,51 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from .models import Usuarios, Tareas, Integrantes
-from .forms import Login, Registro, NuevaTarea
+from .forms import Ingreso, Registro, NuevaTarea
 
 # Create your views here.
 def inicio(request):
     return render(request, 'home.html')
 
-def login(request):
-    usuarios = Usuarios.objects.all()
-    if request.method == 'GET':
-        return render(request, 'login.html', {
-            'form': Login(),
-            'usuarios': usuarios
-        })
+def ingreso(request):
+  if request.method =='POST':
+    usuario = authenticate(request, username=request.POST['username'], password=request.POST['password'])
+    if usuario is not None:
+      login(request, usuario)
+      return redirect('inicio')
     else:
-        return redirect('inicio', "usuario.nombre")
+      return render(request, 'login.html', {
+        'form': Ingreso,
+        'error': "El Ususario o la Contraseña son incorrectos"
+      })
+  else:
+    return render(request, 'login.html', {
+    'form': Ingreso
+    })
+    
+def logueado(request):
+   nombre_usuario = request.user
+   return render(request, 'logueado.html', {
+      'nombre_usuario': nombre_usuario
+   })
 
 def registro(request):
     if request.method == 'GET':
         return render(request, 'registro.html', {
-            'form': Registro()
+            'form': Registro
         })
     else:
-        Usuarios.objects.create(nombre=request.POST['nombre'], email=request.POST['email'], password=request.POST['password'])
-        return redirect('inicio')
+        Usuarios.objects.create(nombre=request.POST['nombre'], password=request.POST['password'])
+        return redirect('ingreso')
 
+@login_required
 def listado(request):
-    tareas = Tareas.objects.all()
+    username = request.user
+    print("Usuario: ", username, "\nUser: ", request.user)
+    tareas = Tareas.objects.filter(usuario_id=username)
     return render(request, 'listado.html', {
         'tareas': tareas
     })
@@ -39,6 +58,10 @@ def nuevaTarea(request):
     else:
         Tareas.objects.create(titulo=request.POST['titulo'], descrip=request.POST['descrip'], completa=False, usuario_id=1)
         return redirect('listado')
+
+def salir(request):
+  logout(request)
+  return redirect('inicio')
 
 def acerca(request):
     integrantes = Integrantes.objects.all()

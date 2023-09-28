@@ -5,16 +5,16 @@
 {% load static %}
 
 <!-- Título -->
-{% block titulo %}Integrantes del Grupo 8{% endblock titulo %}
+{% block titulo %}Logueado{% endblock titulo %}
 
 <!-- Contenido -->
 {% block content %}
+
 <div class="listaFrame">
-  {% for integrante in integrantes %}
-  <ul>
-    <li><h4>{{ integrante }}</h4></li>
-  </ul>
-  {% endfor %}
+  <h1 style="padding: 30px 0px; text-align: center">{{nombre_usuario}}</h1>
+  <p style="padding-bottom: 30px; text-align: center">
+    <b>Usuario logueado</b>
+  </p>
 </div>
 
 <!-- Fin del Bloque -->

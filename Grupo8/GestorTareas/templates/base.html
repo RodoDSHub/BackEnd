@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grupo 8 | Gestor de Tareas</title>
-    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="icon" href="{% static '/img/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
   </head>
 </html>
 <body>
@@ -16,16 +17,16 @@
     <h1>Gestor de Tareas</h1>
     <nav class="navbar">
       <h4><a href="{% url 'inicio' %}">Inicio</a></h4>
-      <h4><a href="{% url 'login' %}">Login</a></h4>
-      <h4><a href="{% url 'registro' %}">Registro</a></h4>
-      <h4><a href="{% url 'listado' %}">Listado</a></h4>
+
+        {% if user.is_authenticated %}
+        <h4><a href="{% url 'salir' %}">Salir</a></h4>
+        {% else %}
+        <h4><a href="{% url 'ingreso' %}">Ingresar</a></h4>
+        {% endif %}
+
+      <h4><a href="{% url 'listado' %}">Tareas</a></h4>
       <h4><a href="{% url 'about' %}">About</a></h4>
     </nav>
-    {% if usuario == '' %}
-    <h3>Bienvenido.</h3>
-    {% else %}
-    <h3>Bienvenido, {{ usuario }}.</h3>
-    {% endif %}
   </div>
 
   <!-- Título -->

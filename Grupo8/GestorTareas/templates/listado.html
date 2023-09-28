@@ -1,28 +1,33 @@
 <!-- Extends -->
-{% extends "about.html" %}
+{% extends "base.html" %}
 
 <!-- Static -->
 {% load static %}
 
 <!-- Título -->
-{% block titulo %}Lista de Tareas{% endblock titulo %}
+{% block titulo %}Lista de Tareas de {{ usuario.username }}{% endblock titulo %}
 
 <!-- Contenido -->
 {% block content %}
 <div class="listaFrame">
   <!-- Lista de Items -->
   {% for tarea in tareas %}
-  <div class="itemFrame">
     {% if tarea.completa == True %}
-    <button class="btnChkBoxTr">■</button>
+      <div class="itemFrameTr">
+        <button class="btnChkBoxTr">■</button>
+        {{tarea.titulo}} - Completa
+        <button class="btnBorrar">X</button>
+        <div class="listaDescrip">{{tarea.descrip}}</div>
+      </div>
     {% else %}
-    <button class="btnChkBoxFl">■</button>
+      <div class="itemFrameFl">
+        <button class="btnChkBoxFl">■</button>
+        {{tarea.titulo}} - Pendiente
+        <button class="btnBorrar">X</button>
+        <div class="listaDescrip">{{tarea.descrip}}</div>
+      </div>
     {% endif %}
-    {{tarea.titulo}}
-    <button class="btnBorrar">X</button>
-    <div class="listaDescrip">{{tarea.descrip}}</div>
-  </div>
-  {% endfor %}
+{% endfor %}
   <br/>
   <button class="apButton" ><a class="lnkPlano" href="{% url "nuevatarea" %}">Nueva Tarea</a></button>
   <!-- Bloque Nueva Tarea -->
