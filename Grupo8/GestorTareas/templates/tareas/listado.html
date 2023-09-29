@@ -1,0 +1,60 @@
+<!-- Extends -->
+{% extends "base.html" %}
+
+<!-- Static -->
+{% load static %}
+
+<!-- Título -->
+{% block titulo %}Lista de Tareas de {{ request.user }}{% endblock titulo %}
+
+<!-- Contenido -->
+{% block content %}
+<div class="listaFrame">
+
+   <!-- Lista de Items -->
+   {% for tarea in tareas %}
+
+   {% if tarea.completa == True %}
+   <div class="itemFrameTrue">
+      <a class="btnChkBoxTrue"
+         href="{% url 'completatarea' tarea.id %}">X</a>
+      <a class="btnBorrar"
+         href="{% url 'borrartarea' tarea.id %}">X</a>
+      <a class="itemFrameTitulo"
+         href="{% url 'editartarea' tarea.id %}">
+         {{tarea.titulo}}
+      </a>
+      <a class="itemFrameDescrip"
+         href="{% url 'editartarea' tarea.id %}">
+         {{tarea.descrip}}
+      </a>
+   </div>
+
+   {% else %}
+   <div class="itemFrameFalse">
+      <a class="btnChkBoxFalse"
+         href="{% url 'completatarea' tarea.id %}">X</a>
+      <a class="btnBorrar"
+         href="{% url 'borrartarea' tarea.id %}">X</a>
+      <a class="itemFrameTitulo"
+         href="{% url 'editartarea' tarea.id %}">
+         {{tarea.titulo}}
+      </a>
+      <a class="itemFrameDescrip"
+         href="{% url 'editartarea' tarea.id %}">
+         {{tarea.descrip}}
+      </a>
+   </div>
+   {% endif %}
+
+   {% endfor %}
+
+   <form action="{% url 'nuevatarea' %}">
+      <button class="apBoton"
+              type="submit">Nueva Tarea</button>
+   </form>
+
+</div>
+
+<!-- Fin del Bloque -->
+{% endblock content %}

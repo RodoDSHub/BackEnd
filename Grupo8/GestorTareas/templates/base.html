@@ -2,15 +2,19 @@
 
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grupo 8 | Gestor de Tareas</title>
-    <link rel="icon" href="{% static '/img/favicon.ico' %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-  </head>
-</html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Grupo 8 | Gestor de Tareas</title>
+  <link rel="icon"
+        href="{% static '/img/favicon.ico' %}"
+        type="image/x-icon">
+  <link rel="stylesheet"
+        href="{% static 'css/styles.css' %}" />
+</head>
+
 <body>
   <div class="encabezado">
     <h2>Grupo 8</h2>
@@ -19,11 +23,12 @@
       <h4><a href="{% url 'inicio' %}">Inicio</a></h4>
       <h4><a href="{% url 'listado' %}">Tareas</a></h4>
 
-        {% if user.is_authenticated %}
-        <h4><a href="{% url 'salir' %}">Salir</a></h4>
-        {% else %}
-        <h4><a href="{% url 'ingreso' %}">Ingresar</a></h4>
-        {% endif %}
+      {% if user.is_authenticated %}
+      <h4><a href="{% url 'salir' %}">Salir</a></h4>
+      {% else %}
+      <h4><a href="{% url 'ingreso' %}">Ingresar</a></h4>
+      <h4><a href="{% url 'registro' %}">Registrarse</a></h4>
+      {% endif %}
 
       <h4><a href="{% url 'about' %}">About</a></h4>
     </nav>
@@ -34,3 +39,5 @@
   <!-- Contenido -->
   {% block content %}{% endblock %}
 </body>
+
+</html>

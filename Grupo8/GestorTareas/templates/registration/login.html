@@ -17,24 +17,26 @@
 
   <!-- Mensaje de Error -->
   {% if error is not None %}
-    <div class="msjError">
-      <p>
-        {{ error }}
-      </p>
-    </div>
+  <div class="msjError">
+    <p>
+      {{ error }}
+    </p>
+  </div>
   {% endif %}
 
   <!-- Formulario -->
   {{ form.as_p }}
 
-  <button class="apBoton">Ingresar</button>
+  <button class="apBoton"
+          type="submit">Ingresar</button>
 
 </form>
 
 <form class="loginFrame"
       action="{% url 'registro' %}">
   Si no tenés usuario? Regístrate aquí --
-  <button class="apBoton">Registro</button>
+  <button class="apBoton"
+          type="submit">Registro</button>
 </form>
 
 <!-- Fin del Bloque -->

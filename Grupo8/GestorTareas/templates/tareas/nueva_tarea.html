@@ -5,7 +5,7 @@
 {% load static %}
 
 <!-- Título -->
-{% block titulo %}Editar Tarea de {{ request.user }}{% endblock titulo %}
+{% block titulo %}Nueva Tareas de {{ request.user }}{% endblock titulo %}
 
 <!-- Contenido -->
 {% block content %}
@@ -13,13 +13,12 @@
 <div class="listaFrame">
   <form class="itemFrame"
         method="POST">
-
     <!-- Token -->
     {% csrf_token %}
     <!-- Formulario -->
     {{ form.as_p }}
-
-    <button class="apBoton">Guardar</button>
+    <button class="apBoton"
+            type="submit">Crear</button>
   </form>
 </div>
 

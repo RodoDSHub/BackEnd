@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .models import Usuarios, Tareas, Integrantes
+from .models import Tareas, Integrantes
 from .forms import Ingreso, Registro, TareaForm
 
 # Create your views here.
@@ -55,7 +53,7 @@ def listado(request):
     username = request.user
     # print("Usuario: ", username, "\nUser: ", request.user)
     tareas = Tareas.objects.filter(usuario=username)
-    return render(request, 'listado.html', {
+    return render(request, 'tareas/listado.html', {
         'tareas': tareas
     })
 
@@ -74,7 +72,7 @@ def nuevaTarea(request):
                             )
       return redirect('listado')
     else:
-      return render(request, 'nueva_tarea.html', data)
+      return render(request, 'tareas/nueva_tarea.html', data)
 
 def editarTarea(request, tarea_id):
   if request.method == 'POST':
@@ -84,7 +82,7 @@ def editarTarea(request, tarea_id):
       datos.save()
       return redirect('listado')
     except ValueError:
-      return render(request, 'edita_tarea.html', {
+      return render(request, 'tareas/edita_tarea.html', {
         'tarea': tarea,
         'form': datos,
         'error': "Error en la actualización de datos"
@@ -92,29 +90,24 @@ def editarTarea(request, tarea_id):
   else:
     tarea = get_object_or_404(Tareas, pk=tarea_id, usuario=request.user)
     datos = TareaForm(instance=tarea)
-    return render(request, 'edita_tarea.html', {
+    return render(request, 'tareas/edita_tarea.html', {
       'tarea': tarea,
       'form': datos
     })
 
-  #  if request.method == 'GET':
-  #     tarea = Tareas.objects.get(pk=tarea_id)
-  #     form = NuevaTarea(data=tarea)
-  #     return render(request, 'edita_tarea.html', {'tarea': tarea, 'form': form})
-  #  else:
-  #     try:
-  #       tarea = Tareas.objects.get(pk=tarea_id)
-  #       form = NuevaTarea(request.POST, instance=tarea)
-  #       form.save()
-  #       return redirect('listado')
-  #     except ValueError:
-  #       return render(request, 'edita_tarea.html', {
-  #          'tarea': tarea,
-  #          'form': form,
-  #          'error': "Error al actualizar la Tarea."
-  #         })
-         
-      
+def completaTarea(request, tarea_id):
+  tarea = get_object_or_404(Tareas, pk=tarea_id, usuario=request.user)
+  if tarea.completa == False:
+    tarea.completa = True
+  else:
+    tarea.completa = False
+  tarea.save()
+  return redirect('listado')
+
+def borrarTarea(request, tarea_id):
+  tarea = get_object_or_404(Tareas, pk=tarea_id, usuario=request.user)
+  tarea.delete()
+  return redirect('listado')
 
 def salir(request):
   logout(request)

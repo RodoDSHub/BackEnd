@@ -73,6 +73,7 @@ body {
 }
 
 .loginFrame span {
+  display: block;
   font-weight: normal;
 }
 
@@ -82,10 +83,15 @@ body {
 }
 
 .loginFrame input {
-  margin: 2px 35px 5px 35px;
-  width: 65%;
+  margin: 2px 35px 5px 5px;
+  width: 35%;
   border-radius: 5px;
   padding: 5px;
+  font-size: medium;
+}
+
+.loginFrame label {
+  text-align: right;
 }
 
 .msjError {
@@ -144,9 +150,9 @@ body {
 .itemFrame input {
   margin: 2px 35px 5px 0px;
   width: 65%;
-  border: 1 solid #c0c0c0;
   border-radius: 5px;
   padding: 5px;
+  font-size: medium;
 }
 
 .itemFrameTitulo {
