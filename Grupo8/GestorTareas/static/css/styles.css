@@ -70,19 +70,42 @@ body {
   color: white;
   text-align: center;
   font-weight: bold;
+  flex-wrap: wrap;
 }
 
-.apInput {
-  margin: auto;
-  width: 75%;
-  border: 1 solid #808080;
+.loginFrame span {
+  font-weight: normal;
+}
+
+.loginFrame ul {
+  font-weight: normal;
+}
+
+.loginFrame input {
+  margin: 2px;
+  width: 50%;
+  border: 1 solid #c0c0c0;
   border-radius: 5px;
   padding: 5px;
-  margin: 2px;
 }
 
+.msjError {
+  margin: auto;
+  width: 90%;
+  background-color: pink;
+  border: #c00000;
+  border-radius: 10px;
+  padding: 5px 15px;
+}
+
+.msjError p {
+  color: #c00000;
+  font-weight: bold;
+}
+
+
 .btnMas {
-  background-color: #ff0000;
+  background-color: #c00000;
   color: #ffffff;
   border: 2px ridge #0080ff;
   font-size: xx-large;

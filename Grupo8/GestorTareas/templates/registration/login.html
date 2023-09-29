@@ -10,27 +10,32 @@
 <!-- Contenido -->
 {% block content %}
 
-<form class="loginFrame" method="POST">
+<form class="loginFrame"
+      method="POST">
   <!-- Token -->
   {% csrf_token %}
 
   <!-- Mensaje de Error -->
-  <p style="color: red; font-weight: bold">
-    {{ error }}
-  </p>
+  {% if error is not None %}
+    <div class="msjError">
+      <p>
+        {{ error }}
+      </p>
+    </div>
+  {% endif %}
 
   <!-- Formulario -->
   {{ form.as_p }}
 
   <button class="apBoton">Ingresar</button>
-  
+
 </form>
 
-<form class="loginFrame" action="{% url 'registro' %}">
-  Si no tenés usuario? Regístrate aquí -- 
+<form class="loginFrame"
+      action="{% url 'registro' %}">
+  Si no tenés usuario? Regístrate aquí --
   <button class="apBoton">Registro</button>
 </form>
-  
 
 <!-- Fin del Bloque -->
 {% endblock %}

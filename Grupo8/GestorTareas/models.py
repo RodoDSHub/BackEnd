@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Usuarios(models.Model):
@@ -14,10 +15,10 @@ class Tareas(models.Model):
     titulo = models.CharField(max_length=200, verbose_name="Título")
     descrip = models.CharField(max_length=200, verbose_name="Descripción")
     completa = models.BooleanField(default=False)
-    usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE, verbose_name="Nombre de Usuario")
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Nombre de Usuario")
 
     def __str__(self):
-        return self.titulo + ' - ' + self.descrip + ' de ' + self.usuario.nombre
+        return self.titulo + ' - ' + self.descrip + ' de ' + self.usuario.username
 
 
 class Integrantes(models.Model):

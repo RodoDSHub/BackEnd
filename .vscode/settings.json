@@ -7,7 +7,7 @@
   "editor.wordWrap": "on",
   "git.autofetch": true,
   "editor.linkedEditing": true,
-  "workbench.iconTheme": "vs-minimal",
+  "workbench.iconTheme": "vscode-icons",
   "workbench.editorAssociations": {
     "*.sqlite3": "sqlite-viewer.view"
   },
