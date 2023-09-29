@@ -70,7 +70,6 @@ body {
   color: white;
   text-align: center;
   font-weight: bold;
-  flex-wrap: wrap;
 }
 
 .loginFrame span {
@@ -79,11 +78,12 @@ body {
 
 .loginFrame ul {
   font-weight: normal;
+  text-align: left;
 }
 
 .loginFrame input {
-  margin: 2px;
-  width: 50%;
+  margin: 2px 35px 5px 35px;
+  width: 65%;
   border: 1 solid #c0c0c0;
   border-radius: 5px;
   padding: 5px;
@@ -144,6 +144,22 @@ body {
   color: black;
   border-radius: 10px;
   padding: 10px 20px;
+}
+
+.itemFrameFl label {
+  margin: 2px 5px 5px 35px;
+  color: black;
+  text-align: right;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.itemFrameFl input {
+  margin: 2px 35px 5px 0px;
+  width: 65%;
+  border: 1 solid #c0c0c0;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .itemFrameTr {

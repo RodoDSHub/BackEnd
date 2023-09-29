@@ -12,26 +12,26 @@
 <div class="listaFrame">
   <!-- Lista de Items -->
   {% for tarea in tareas %}
-    {% if tarea.completa == True %}
-      <div class="itemFrameTr">
-        <button class="btnChkBoxTr">■</button>
-        {{tarea.titulo}} - Completa
-        <button class="btnBorrar">X</button>
-        <div class="listaDescrip">{{tarea.descrip}}</div>
-      </div>
-    {% else %}
-      <div class="itemFrameFl">
-        <button class="btnChkBoxFl">■</button>
-        {{tarea.titulo}} - Pendiente
-        <button class="btnBorrar">X</button>
-        <div class="listaDescrip">{{tarea.descrip}}</div>
-      </div>
-    {% endif %}
-{% endfor %}
-  <br/>
-  <button class="apButton" ><a class="lnkPlano" href="{% url "nuevatarea" %}">Nueva Tarea</a></button>
-  <!-- Bloque Nueva Tarea -->
-  {% block nuevaTarea %}{% endblock nuevaTarea %}
+  {% if tarea.completa == True %}
+  <div class="itemFrameTr">
+    <button class="btnChkBoxTr">■</button>
+    {{tarea.titulo}} - Completa
+    <button class="btnBorrar">X</button>
+    <div class="listaDescrip">{{tarea.descrip}}</div>
+  </div>
+  {% else %}
+  <div class="itemFrameFl">
+    <button class="btnChkBoxFl">■</button>
+    {{tarea.titulo}} - Pendiente
+    <button class="btnBorrar">X</button>
+    <div class="listaDescrip">{{tarea.descrip}}</div>
+  </div>
+  {% endif %}
+  {% endfor %}
+  <br />
+  <button class="apBoton"><a class="lnkPlano"
+       href="{% url 'nuevatarea' %}">Nueva Tarea</a></button>
+
 </div>
 
 <!-- Fin del Bloque -->

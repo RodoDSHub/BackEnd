@@ -61,20 +61,28 @@ def registro(request):
 @login_required
 def listado(request):
     username = request.user
-    print("Usuario: ", username, "\nUser: ", request.user)
+    # print("Usuario: ", username, "\nUser: ", request.user)
     tareas = Tareas.objects.filter(usuario=username)
     return render(request, 'listado.html', {
         'tareas': tareas
     })
 
+@login_required
 def nuevaTarea(request):
-    if request.method == 'GET':
-        return render(request, 'nueva_tarea.html', {
-            'form': NuevaTarea()
-        })
+    data = {
+       'form': NuevaTarea()
+    }
+    if request.method == 'POST':
+      formulario = NuevaTarea(data=request.POST)
+      
+      Tareas.objects.create(titulo=formulario.data['titulo'], 
+                            descrip=formulario.data['descrip'], 
+                            completa=False, 
+                            usuario=request.user
+                            )
+      return redirect('listado')
     else:
-        Tareas.objects.create(titulo=request.POST['titulo'], descrip=request.POST['descrip'], completa=False, usuario_id=1)
-        return redirect('listado')
+      return render(request, 'nueva_tarea.html', data)
 
 def salir(request):
   logout(request)

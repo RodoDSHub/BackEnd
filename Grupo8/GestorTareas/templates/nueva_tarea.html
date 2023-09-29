@@ -1,19 +1,25 @@
 <!-- Extends -->
-{% extends "listado.html" %}
+{% extends "base.html" %}
 
 <!-- Static -->
 {% load static %}
 
-<!-- Contenido -->
-{% block nuevaTarea %}
+<!-- Título -->
+{% block titulo %}Nueva Tareas de {{ request.user }}{% endblock titulo %}
 
-<form class="itemFrame" method="POST">
-  <!-- Token -->
-  {% csrf_token %}
-  <!-- Formulario -->
-  {{ form.as_p }}
-  <button class="apButton">Crear</button>
-</form>
+<!-- Contenido -->
+{% block content %}
+
+<div class="listaFrame">
+  <form class="itemFrameFl"
+        method="POST">
+    <!-- Token -->
+    {% csrf_token %}
+    <!-- Formulario -->
+    {{ form.as_p }}
+    <button class="apBoton">Crear</button>
+  </form>
+</div>
 
 <!-- Fin del Bloque nuevaTarea-->
-{% endblock nuevaTarea %}
+{% endblock %}
