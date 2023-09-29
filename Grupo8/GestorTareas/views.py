@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import Usuarios, Tareas, Integrantes
-from .forms import Ingreso, Registro, NuevaTarea
+from .forms import Ingreso, Registro, TareaForm
 
 # Create your views here.
 def inicio(request):
@@ -13,7 +13,7 @@ def inicio(request):
 def ingreso(request):
   if request.method =='POST':
     usuario = authenticate(request, username=request.POST['username'], password=request.POST['password'])
-    print("Nuevo Usuario: ", usuario)
+    # print("Nuevo Usuario: ", usuario)
     if usuario is not None:
       login(request, usuario)
       return redirect('inicio')
@@ -50,14 +50,6 @@ def registro(request):
       
   return render(request, 'registration/registro.html', data)
 
-#    if request.method == 'GET':
-#        return render(request, 'registration/registro.html', {
-#            'form': Registro()
-#        })
-#    else:
-#        Usuarios.objects.create(nombre=request.POST['nombre'], password=request.POST['password'])
-#        return redirect('ingreso')
-
 @login_required
 def listado(request):
     username = request.user
@@ -70,10 +62,10 @@ def listado(request):
 @login_required
 def nuevaTarea(request):
     data = {
-       'form': NuevaTarea()
+       'form': TareaForm()
     }
     if request.method == 'POST':
-      formulario = NuevaTarea(data=request.POST)
+      formulario = TareaForm(data=request.POST)
       
       Tareas.objects.create(titulo=formulario.data['titulo'], 
                             descrip=formulario.data['descrip'], 
@@ -83,6 +75,46 @@ def nuevaTarea(request):
       return redirect('listado')
     else:
       return render(request, 'nueva_tarea.html', data)
+
+def editarTarea(request, tarea_id):
+  if request.method == 'POST':
+    try:
+      tarea = get_object_or_404(Tareas, pk=tarea_id, usuario=request.user)
+      datos = TareaForm(request.POST, instance=tarea)
+      datos.save()
+      return redirect('listado')
+    except ValueError:
+      return render(request, 'edita_tarea.html', {
+        'tarea': tarea,
+        'form': datos,
+        'error': "Error en la actualización de datos"
+      })
+  else:
+    tarea = get_object_or_404(Tareas, pk=tarea_id, usuario=request.user)
+    datos = TareaForm(instance=tarea)
+    return render(request, 'edita_tarea.html', {
+      'tarea': tarea,
+      'form': datos
+    })
+
+  #  if request.method == 'GET':
+  #     tarea = Tareas.objects.get(pk=tarea_id)
+  #     form = NuevaTarea(data=tarea)
+  #     return render(request, 'edita_tarea.html', {'tarea': tarea, 'form': form})
+  #  else:
+  #     try:
+  #       tarea = Tareas.objects.get(pk=tarea_id)
+  #       form = NuevaTarea(request.POST, instance=tarea)
+  #       form.save()
+  #       return redirect('listado')
+  #     except ValueError:
+  #       return render(request, 'edita_tarea.html', {
+  #          'tarea': tarea,
+  #          'form': form,
+  #          'error': "Error al actualizar la Tarea."
+  #         })
+         
+      
 
 def salir(request):
   logout(request)
