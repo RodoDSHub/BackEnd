@@ -1,6 +1,9 @@
 <!-- Extends -->
 {% extends "base.html" %}
 
+<!-- Título de Página -->
+{% block title %}Registro{% endblock %}
+
 <!-- Static -->
 {% load static %}
 
@@ -12,12 +15,12 @@
 
 <form class="loginFrame"
       method="POST">
-  <!-- Token -->
-  {% csrf_token %}
-  <!-- Fornulario -->
-  {{ form.as_p }}
-  <button class="apBoton"
-          type="submit">Crear</button>
+    <!-- Token -->
+    {% csrf_token %}
+    <!-- Fornulario -->
+    {{ form.as_p }}
+    <button class="apBoton"
+            type="submit">Crear</button>
 </form>
 
 <!-- Fin del Bloque -->

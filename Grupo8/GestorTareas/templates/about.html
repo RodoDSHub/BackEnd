@@ -1,6 +1,9 @@
 <!-- Extends -->
 {% extends "base.html" %}
 
+<!-- Título de Página -->
+{% block title %}Acerca de{% endblock %}
+
 <!-- Static -->
 {% load static %}
 
@@ -12,7 +15,9 @@
 <div class="listaFrame">
   {% for integrante in integrantes %}
   <ul>
-    <li><h4>{{ integrante }}</h4></li>
+    <li>
+      <h4>{{ integrante }}</h4>
+    </li>
   </ul>
   {% endfor %}
 </div>

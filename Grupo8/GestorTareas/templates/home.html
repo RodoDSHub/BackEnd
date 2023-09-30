@@ -1,6 +1,9 @@
 <!-- Extends -->
 {% extends "base.html" %}
 
+<!-- Título de Página -->
+{% block title %}Inicio{% endblock %}
+
 <!-- Static -->
 {% load static %}
 
@@ -15,14 +18,14 @@
   <h1 style="padding: 30px 0px; text-align: center">- Bienvenidos -</h1>
 
   {% if user.is_authenticated %}
-    <h1 style="padding: 30px 0px; text-align: center">{{ user.username }}</h1>
-    <p style="padding-bottom: 30px; text-align: center">
-      <b>Usuario logueado</b>
-    </p>
+  <h1 style="padding: 30px 0px; text-align: center">{{ user.username }}</h1>
+  <p style="padding-bottom: 30px; text-align: center">
+    <b>Usuario logueado</b>
+  </p>
   {% else %}
-    <p style="padding-bottom: 30px; text-align: center">
-      <b>Ingrese con su Usuario para ver su Lista de Tareas</b>
-    </p>
+  <p style="padding-bottom: 30px; text-align: center">
+    <b>Ingrese con su Usuario para ver su Lista de Tareas</b>
+  </p>
   {% endif %}
 
 </div>
